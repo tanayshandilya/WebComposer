@@ -1,5 +1,8 @@
 /*------------ PollyFills --------------*/
 if (! Object.prototype.import) {
+  /**
+  * @param {Function} elementFunction
+  */
   Object.prototype.import = function(elementFunction){
     if(this.getAttribute('type') && this.getAttribute('type') === 'template'){
       if(this.getAttribute('src')){
@@ -21,6 +24,9 @@ if (! Object.prototype.import) {
 }
 
 if (! Object.prototype.translateAttributes ) {
+  /**
+  * @param {Object} targetElement
+  */
   Object.prototype.translateAttributes = function(targetElement){
     for(var i = 0; i < this.attributes.length; i++){
       if (!this.attributes[i].name.startsWith(':'))
@@ -31,6 +37,9 @@ if (! Object.prototype.translateAttributes ) {
 }
 
 if (! Object.prototype.translateHTML) {
+  /**
+  * @param {Object} targetElement
+  */
   Object.prototype.translateHTML = function(targetElement){
     this._content = this.innerHTML;
     this.innerHTML = '';
@@ -40,6 +49,9 @@ if (! Object.prototype.translateHTML) {
 /*------------ /PollyFills --------------*/
 
 class WebComposer {
+  /**
+  * @param {Object} config
+  */
   constructor(config){
     this.config = config;
     this.importTemplates();
